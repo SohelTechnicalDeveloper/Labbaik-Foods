@@ -1,23 +1,29 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import image1 from "../Images/ashwini-chaudhary-monty-YX8L3EFiQmk-unsplash.jpg";
 
 const Category = () => {
-   
-     const[slide,setSlide] = useState(0)
-     const[getData,setGetData] = useState([])
-     const [recipes, setRecipes] = useState([]);
+  const [slide, setSlide] = useState(0);
+  const [recipes, setRecipes] = useState([]);
 
-
+  const handleNextSlide = () => {
      
-     const nextSlide = ()=>{
-        setSlide(slide+3)
-     }
+    // console.log(slide + 3);
+    if(slide===0)
+      {
+          return false
+      }
+    setSlide(slide + 6);
+    
+  };
 
-    //  const prevSlide = ()=>{
-    //     set
-    //  }
+  const handlePrevSlide = () => {
+      if(slide >= recipes.length - 6)
+        {
+            return false
+        }
+    setSlide(slide - 6);
+  };
 
   const category = [
     {
@@ -101,58 +107,59 @@ const Category = () => {
       path: "south-indian",
     },
   ];
-  
-    const getCategory = async () => {
-      try {
-        const response = await axios.get("https://the-vegan-recipes-db.p.rapidapi.com/", {
-          headers: {
-            "x-rapidapi-key": "6f52829c3amshc9e9a26fc5cc699p1522a3jsn81568a7d6f2d",
-            "x-rapidapi-host": "the-vegan-recipes-db.p.rapidapi.com",
-          },
-        });
 
-        setRecipes(response.data); // Assuming the response is an array
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    
-   
-   useEffect(() => {
-      getCategory();
-    },[]);
+  const getCategory = async () => {
+    try {
+      const response = await axios.get(
+        "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"
+      );
+
+      setRecipes(response.data.meals);
+     console.log(recipes.length);
+
+
+      // Assuming the response is an array
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    getCategory();
+  }, []);
 
   return (
     <div>
       {/* this are category details */}
 
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1200px] mx-auto  ">
         <div className="flex items-center justify-between my-10">
           <div className="text-[25px] font-bold">What's on your mind ?</div>
-          <div className="flex">
-            <div className="   bg-slate-500 flex items-center justify-center cursor-pointer rounded-full w-[30px] h-[30px] mx-2">
-              <FaArrowLeft />
+          <div className="flex  ">
+            <div  className="bg-slate-500 flex items-center justify-center cursor-pointer rounded-full w-[30px] h-[30px] mx-2" onClick={handleNextSlide}>
+              <FaArrowLeft   />
             </div>
-            <div className="   bg-slate-500 flex items-center justify-center cursor-pointer rounded-full w-[30px] h-[30px] mx-2">
-              <FaArrowRight />
+            <div className="bg-slate-500 flex items-center justify-center cursor-pointer rounded-full w-[30px] h-[30px] mx-2" onClick={handlePrevSlide}>
+              <FaArrowRight  />
             </div>
           </div>
         </div>
 
         {/* this are category data */}
 
-        <div className="flex border  border-red-600">
-          {
-            recipes.map((item,index)=>{
-                return (
-         
-          <div className="w-[150px] shrink-0 mx-6">
-            <img src={item.image} className="h-[150px]" alt="" />
-             <p>{item.title}</p>
-          </div>
-           )
-            })
-        } 
+        <div className="flex overflow-hidden">
+          {recipes.map((item, index) => {
+            return (
+              <div
+                style={{ transform: `translateX(${slide * 100}%)` }}
+                key={item.idMeal}
+                className="w-[150px] shrink-0 mx-6 duration-500"
+              >
+                <img src={item.strMealThumb} className="h-[150px] rounded-md" alt="" />
+                <p>{item.strMeal}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
