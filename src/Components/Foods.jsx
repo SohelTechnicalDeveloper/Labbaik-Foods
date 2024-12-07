@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { IoIosContact } from "react-icons/io";
 import { LuUtensilsCrossed } from "react-icons/lu";
 import { MdMarkEmailUnread } from "react-icons/md";
+import image1 from "../Images/PD1081949.jpg";
+import { FaUtensils } from "react-icons/fa";
 
 const Foods = () => {
   const [foodsData, setFoodsData] = useState([]);
@@ -80,8 +82,8 @@ const Foods = () => {
       <div className="bg-white py-16 ">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-800">
-            {" "}
-            Welcome to Labbaik Foods
+           
+            Welcome To Labbaik Foods   🍽️
           </h1>
           <p className="text-lg text-gray-600 mt-4 max-w-[1200px]  mx-auto">
             At Labbaik Foods, we are constantly striving to express our passion
@@ -93,7 +95,7 @@ const Foods = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 max-w-6xl mx-auto px-4">
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center">
+          <div className="bg-white shadow-sm rounded-lg p-6 text-center">
             <div className=" bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl text-2xl text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
               <MdMarkEmailUnread />
             </div>
@@ -118,7 +120,7 @@ const Foods = () => {
               Simplify team reporting and ensure smooth operations.
             </p>
           </div>
-          <div className="bg-white shadow-lg rounded-lg p-6 text-center">
+          <div className="bg-white shadow-sm rounded-lg p-6 text-center">
             <div className=" bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl text-white w-12 h-12 text-2xl rounded-full flex items-center justify-center mx-auto mb-4">
               <IoIosContact />
             </div>
@@ -132,7 +134,15 @@ const Foods = () => {
             </p>
           </div>
         </div>
-      </div>
+
+          <div className=" h-64 md:h-96 lg:h-[480px] rounded-3xl relative overflow-hidden m-28  ">
+            <img
+              src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Pasta with Pesto and Tomatoes"
+              className="w-full  h-full  object-cover"
+            />
+          </div>
+        </div>
     </div>
   );
 };
