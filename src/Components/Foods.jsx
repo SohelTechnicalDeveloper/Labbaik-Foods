@@ -4,10 +4,14 @@ import { IoIosContact } from "react-icons/io";
 import { LuUtensilsCrossed } from "react-icons/lu";
 import { MdMarkEmailUnread } from "react-icons/md";
 import image1 from "../Images/PD1081949.jpg";
-import { FaUtensils } from "react-icons/fa";
+import useStore from './Store'; // Import the Zustand store
+
 
 const Foods = () => {
   const [foodsData, setFoodsData] = useState([]);
+
+  const {  increase, decrease } = useStore();
+
 
   const getFoodsData = async () => {
     try {
@@ -57,7 +61,7 @@ const Foods = () => {
                       $ 129
                     </p>
                     <del>
-                      <p className="text-sm text-gray-600 cursor-auto ml-2">
+                      <p className="text-sm  cursor-auto ml-2">
                         $ 129
                       </p>
                     </del>
@@ -65,8 +69,9 @@ const Foods = () => {
                       <button
                         type="button"
                         className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                       onClick={increase}
                       >
-                        Read More
+                        Add Me
                       </button>
                     </div>
                   </div>
@@ -81,11 +86,10 @@ const Foods = () => {
 
       <div className="bg-white py-16 ">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-800">
-           
-            Welcome To Labbaik Foods   🍽️
+          <h1 className="text-4xl font-bold  " style={{color:"#1B2559"}}>
+            Welcome To Labbaik Foods 🍽️
           </h1>
-          <p className="text-lg text-gray-600 mt-4 max-w-[1200px]  mx-auto">
+          <p className="text-lg  mt-4 max-w-[1200px]  mx-auto text-color"  >
             At Labbaik Foods, we are constantly striving to express our passion
             and turn our dreams into reality. We believe in creating experiences
             that nourish both the body and the soul. If you have the opportunity
@@ -99,10 +103,10 @@ const Foods = () => {
             <div className=" bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl text-2xl text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
               <MdMarkEmailUnread />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800">
+            <h3 className="text-xl font-semibold text-gray-800" style={{color:"#1B2559"}}>
               Email Reservation
             </h3>
-            <p className="text-gray-600 mt-2">
+            <p className=" mt-2 text-color" >
               Integrate our shared team inboxes seamlessly with your website.
               Enhance the user experience and provide efficient communication
               channels.
@@ -112,10 +116,10 @@ const Foods = () => {
             <div className=" bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl text-2xl text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
               <LuUtensilsCrossed />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800">
+            <h3 className="text-xl font-semibold text-gray-800" style={{color:"#1B2559"}}>
               Healthy Food
             </h3>
-            <p className="text-gray-600 mt-2">
+            <p className=" mt-2 text-color"  >
               Manage your team effortlessly with our shared team inboxes.
               Simplify team reporting and ensure smooth operations.
             </p>
@@ -124,25 +128,26 @@ const Foods = () => {
             <div className=" bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl text-white w-12 h-12 text-2xl rounded-full flex items-center justify-center mx-auto mb-4">
               <IoIosContact />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800">
+            <h3 className="text-xl font-semibold text-gray-800" style={{color:"#1B2559"}}>
               Business Meetings
             </h3>
-            <p className="text-gray-600 mt-2">
+            <p className=" mt-2 text-color" >
               Gain valuable insights and data analytics for your team through
-              our analytics dashboard. Make informed decisions and track your
-              progress effectively.
+              our analytics dashboard. With Labbaik Foods Meetings, make
+              informed decisions and track your progress effectively, ensuring
+              your team sta ys aligned and productive.
             </p>
           </div>
         </div>
 
-          <div className=" h-64 md:h-96 lg:h-[480px] rounded-3xl relative overflow-hidden m-28  ">
-            <img
-              src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Pasta with Pesto and Tomatoes"
-              className="w-full  h-full  object-cover"
-            />
-          </div>
+        <div className=" h-64 md:h-96 lg:h-[480px] rounded-3xl relative overflow-hidden m-28  ">
+          <img
+            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Pasta with Pesto and Tomatoes"
+            className="w-full  h-full  object-cover"
+          />
         </div>
+      </div>
     </div>
   );
 };
