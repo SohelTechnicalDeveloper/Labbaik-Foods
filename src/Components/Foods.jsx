@@ -52,11 +52,11 @@ const Foods = () => {
       {/* this are foods data  */}
       <section
         id="Projects"
-        className=" mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 justify-items-center justify-center gap-y-16  mb-5 "
+        className=" mx-auto grid grid-cols-1 gap-x-14 p-16 gap-y-14  mb-5 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 justify-items-center justify-center  "
       >
         {foodsData.map((item) => {
           return (
-            <div className="w-72 bg-white shadow-2xl rounded-2xl duration-500 hover:scale-105 hover:shadow-xl">
+            <div className="w-full   bg-transparent shadow-2xl rounded-2xl duration-500 hover:scale-105 hover:shadow-xl">
               <div className="overflow-hidden rounded-t-lg bg-zinc-300">
                 <img
                   className="transition-transform duration-300 ease-in-out rounded-t-lg"
@@ -65,10 +65,8 @@ const Foods = () => {
                 />
                 {/* </div> */}
 
-                <div className="px-4 py-3 w-72">
-                  <span className="text-gray-400 mr-3 uppercase text-xs">
-                    Brand
-                  </span>
+                <div className="px-4 py-3 w-full">
+                 
                   <p
                     className="text-lg font-bold text-black truncate block capitalize"
                     title={item.strMeal}
@@ -80,7 +78,7 @@ const Foods = () => {
                       $ 129
                     </p>
                     <del>
-                      <p className="text-sm  cursor-auto ml-2">$ 129</p>
+                      <p className="text-sm  cursor-auto ml-2 ">$ 129</p>
                     </del>
                     <div className="ml-auto">
                       <button

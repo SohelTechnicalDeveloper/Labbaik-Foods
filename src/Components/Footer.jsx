@@ -29,14 +29,16 @@ const Footer = ({ onScrollToTop }) => {
 
           {/* Form Section */}
           <div className="w-full lg:w-1/2 bg-white shadow border rounded-lg px-8 py-6">
-            <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
+            <h2 className="text-2xl font-bold  text-center mb-6" style={{ color: "#1B2559" }}>
+              
               Contact Us
             </h2>
 
             {/* Name Input */}
             <div className="mb-4">
               <label
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium mb-2"
+                style={{ color: "#1B2559" }}
               >
                 Full Name
               </label>
@@ -52,6 +54,7 @@ const Footer = ({ onScrollToTop }) => {
             <div className="mb-4">
               <label
                 className="block text-sm font-medium text-gray-700 mb-2"
+                style={{ color: "#1B2559" }}
               >
                 Email Address
               </label>
@@ -67,6 +70,7 @@ const Footer = ({ onScrollToTop }) => {
             <div className="mb-4">
               <label
                 className="block text-sm font-medium text-gray-700 mb-2"
+                style={{ color: "#1B2559" }}
               >
                 Message
               </label>
@@ -250,12 +254,12 @@ const Footer = ({ onScrollToTop }) => {
           </div>
 
           <div
-            className="d-flex animate-bounce justify-self-end mx-6 mt-0 text-center h-14 w-14 bg-slate-400 rounded-full "
+            className="d-flex animate-bounce justify-self-end mx-6 mt-0 text-center h-12 w-12 bg-slate-400 rounded-full "
             style={{ position: "relative", top: "-150px", right: "0px" }}
           >
             <button
               type="button"
-              className="text-3xl  mt-3 text-black font-bold"
+              className="text-2xl  mt-3 text-black font-bold"
               onClick={onScrollToTop}
             >
               <BiSolidArrowToTop />
