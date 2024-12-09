@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const Footer = ({ onScrollToTop }) => {
   return (
     <div>
-      <footer className="bg-white dark:bg-gray-900  mb-1 mt-0">
+      <footer className="bg-white   mb-1 mt-0">
         {/* google maps in reactjs */}
         <div className="flex flex-col lg:flex-row justify-center items-start space-y-10 lg:space-y-0 lg:space-x-10 px-4 lg:px-10 py-10">
           {/* Map Section */}
