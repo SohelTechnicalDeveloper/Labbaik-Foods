@@ -7,7 +7,8 @@ import { RiDiscountPercentLine } from "react-icons/ri";
 import { BsCart } from "react-icons/bs";
 import { LiaHandsHelpingSolid } from "react-icons/lia";
 import useStore from "./Store";
-const Header = () => {
+import { Link } from "react-router-dom";
+const Header = ({ headerRef }) => {
   const [toggle, setToggle] = useState(false);
 
   const { count } = useStore(); // Destructure state and actions
@@ -45,6 +46,7 @@ const Header = () => {
     <>
       {/* Overlay and Side Menu */}
       <div
+        ref={headerRef}
         className="black-overlay w-full h-full fixed duration-500 z-50"
         onClick={() => hideSideMenu()}
         style={{
@@ -74,7 +76,7 @@ const Header = () => {
         </div> */}
 
           {/* Location Section */}
-          <div className="flex items-center text-sm sm:text-base">
+          <div className="flex items-center text-md sm:text-base">
             <span className="text-black underline font-bold">
               {" "}
               Harsol&nbsp;{" "}
@@ -88,9 +90,9 @@ const Header = () => {
           </div>
 
           {/* Navigation */}
-          <nav className="flex flex-wrap items-center gap-4 sm:gap-6 lg:gap-10 text-sm sm:text-base font-semibold">
+          <nav className="flex flex-wrap items-center gap-4 sm:gap-6 lg:gap-10 text-md sm:text-base font-semibold">
             {/* Search Bar */}
-            <div className="relative w-full sm:w-auto">
+            {/* <div className="relative w-full sm:w-auto">
               <input
                 type="search"
                 id="default-search"
@@ -104,24 +106,28 @@ const Header = () => {
               >
                 Search
               </button>
-            </div>
+            </div> */}
 
             {/* Navigation Links */}
             <ul className="flex flex-wrap items-center gap-4 sm:gap-6">
-              {links.map((link, index) => {
-                return (
-                  <li
-                    key={index}
-                    className="flex items-center gap-2 cursor-pointer hover:text-[#fc8019]"
-                  >
-                    {link.icon}
-                    {link.name}
-                    {link.sup  && (
-                      <sup className="text-lg text-orange-500 ">{link.sup}</sup>
-                    )}
-                  </li>
-                );
-              })}
+              <li className="flex items-center gap-2 cursor-pointer hover:text-[#fc8019]">
+              <FaSearch />
+                <span>Search</span>
+                <sup className="text-lg text-orange-500 ">New</sup>
+              </li>
+              <li className="flex items-center gap-2 cursor-pointer hover:text-[#fc8019]">
+                <LiaHandsHelpingSolid />
+                <span>Offers</span>
+              </li>
+              <li className="flex items-center gap-2 cursor-pointer hover:text-[#fc8019]">
+                <RiDiscountPercentLine />
+                <span>Offers</span>
+              </li>
+              <li className="flex items-center gap-2 cursor-pointer hover:text-[#fc8019]">
+                <BsCart /> 
+                <span>Cart</span>
+                <sup className="text-lg text-orange-500 ">{count}</sup>
+              </li>
             </ul>
           </nav>
         </div>

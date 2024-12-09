@@ -22,7 +22,7 @@ const Category = () => {
         {
             return false
         }
-    setSlide(slide - 6);
+        setSlide(slide - 6);
   };
 
   const category = [
@@ -111,7 +111,7 @@ const Category = () => {
   const getCategory = async () => {
     try {
       const response = await axios.get(
-        "https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood"
+        "https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian"
       );
 
       setRecipes(response.data.meals);
@@ -132,14 +132,14 @@ const Category = () => {
     <div>
       {/* this are category details */}
 
-      <div className="max-w-[1200px] mx-auto  ">
+      <div className="max-w-[1200px] mx-auto mb-11 ">
         <div className="flex items-center justify-between my-10">
           <div className="text-[25px] font-bold">What's on your mind ?</div>
           <div className="flex  ">
-            <div  className="bg-slate-500 flex items-center justify-center cursor-pointer rounded-full w-[30px] h-[30px] mx-2" onClick={handleNextSlide}>
+            <div  className="bg-slate-700 flex items-center justify-center cursor-pointer rounded-full w-[30px] h-[30px] mx-2 text-white" onClick={handleNextSlide}>
               <FaArrowLeft   />
             </div>
-            <div className="bg-slate-500 flex items-center justify-center cursor-pointer rounded-full w-[30px] h-[30px] mx-2" onClick={handlePrevSlide}>
+            <div className="bg-slate-700 flex items-center justify-center cursor-pointer rounded-full w-[30px] h-[30px] mx-2 text-white" onClick={handlePrevSlide}>
               <FaArrowRight  />
             </div>
           </div>
@@ -147,13 +147,13 @@ const Category = () => {
 
         {/* this are category data */}
 
-        <div className="flex overflow-hidden">
+        <div className="flex overflow-hidden  snap-x ... ">
           {recipes.map((item, index) => {
             return (
               <div
                 style={{ transform: `translateX(${slide * 100}%)` }}
                 key={item.idMeal}
-                className="w-[150px] shrink-0 mx-6 duration-500"
+                className="w-[150px] shrink-0 mx-6 duration-500 snap-center ..."
               >
                 <img src={item.strMealThumb} className="h-[150px] rounded-md" alt="" />
                 <p>{item.strMeal}</p>

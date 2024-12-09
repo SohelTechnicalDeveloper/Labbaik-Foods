@@ -5,3 +5,9 @@
 .black-overlay{
   background-color: rgba(0, 0, 0, 0.7);
 }
+:root{
+  --color: bisque;
+}
+.contain{
+  color: root[--blue];
+}
